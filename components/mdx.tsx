@@ -17,7 +17,7 @@ const components = {
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "font-heading dark:text-white text-zinc-950 mt-10 scroll-m-20 text-3xl leading-tight tracking-tight first:mt-0",
+        "font-heading dark:text-white text-zinc-950 mt-10 mb-5 scroll-m-20  text-2xl sm:text-3xl leading-tight tracking-tight first:mt-0",
         className
       )}
       {...props}
@@ -26,7 +26,7 @@ const components = {
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       className={cn(
-        "font-heading dark:text-white text-zinc-950 mt-10 scroll-m-20 text-2xl leading-tight tracking-tight",
+        "font-heading dark:text-white text-zinc-950 mt-10 mb-5 scroll-m-20 text-[20px] sm:text-2xl leading-tight tracking-tight",
         className
       )}
       {...props}
@@ -61,14 +61,17 @@ const components = {
   ),
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <a
-      className={cn("font-medium underline underline-offset-4", className)}
+      className={cn(
+        "font-normal underline underline-offset-4 decoration-muted-foreground",
+        className
+      )}
       {...props}
     />
   ),
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
       className={cn(
-        "leading-7 [&:not(:first-child)]:mt-5 font-light",
+        "leading-7 [&:not(:first-child)]:mt-5 font-light mb-5",
         className
       )}
       {...props}
@@ -81,7 +84,7 @@ const components = {
     <ol className={cn("my-6 ml-6 list-decimal", className)} {...props} />
   ),
   li: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <li className={cn("mt-2", className)} {...props} />
+    <li className={cn("mt-2 font-light", className)} {...props} />
   ),
   blockquote: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <blockquote
@@ -135,7 +138,7 @@ const components = {
   pre: ({ className, ...props }) => (
     <pre
       className={cn(
-        " [&>code]:!bg-zinc-950 rounded border mt-5 border-zinc-800 overflow-x-auto !bg-zinc-950 text-xs sm:text-sm pl-2 [&>span]:pr-2 py-2",
+        " [&>code]:!bg-zinc-900 rounded border mt-3 border-zinc-800 overflow-x-auto !bg-zinc-900 text-xs sm:text-sm pl-2 [&>span]:pr-2 py-2",
         className
       )}
       {...props}

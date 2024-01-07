@@ -21,7 +21,7 @@ export default async function Home() {
   });
 
   return (
-    <div className="container relative -top-[10px] flex flex-col gap-8">
+    <div className="container py-8 relative flex flex-col gap-8">
       {posts.map((post) => (
         <Link
           key={post.slug}
@@ -29,10 +29,10 @@ export default async function Home() {
           href={"/blog/" + post.slug + "/"}
         >
           <article>
-            <h2 className={["text-3xl font-black font-heading"].join(" ")}>
+            <h2 className={"text-3xl tracking-tight font-heading"}>
               {post.data.title}
             </h2>
-            <p className="text-[13px] text-gray-700 dark:text-gray-300">
+            <p className="text-[13px] text-muted-foreground">
               {new Date(post.data.publishedAt).toLocaleDateString("en", {
                 day: "numeric",
                 month: "long",

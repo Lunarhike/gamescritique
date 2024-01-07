@@ -25,10 +25,10 @@ export default async function Blog({ params }) {
             Published on {formatDate(post.metadata.publishedAt)}
           </time>
         )}
-        <h1 className="mt-2 font-heading inline-block text-5xl font-medium leading-tight tracking-tight lg:text-5xl">
+        <h1 className="mt-2 font-heading inline-block text-3xl font-medium leading-tight tracking-tight sm:text-5xl">
           {post.metadata.title}
         </h1>
-        <div className="mt-4 flex space-x-4"></div>
+        <div className="mt-2 text-muted-foreground text-sm flex space-x-4"></div>
         <Suspense fallback={<div>Test...</div>}>
           <Placeholder />
         </Suspense>
