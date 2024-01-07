@@ -15,25 +15,12 @@ const config: Config = {
     container: {
       center: true,
       padding: "1.2rem",
-      screens: {
-        "2xl": "1280px",
-      },
     },
     extend: {
-      typography: (theme) => ({
-        DEFAULT: {
-          css: {
-            maxWidth: "650px",
-          },
-        },
-      }),
       fontFamily: {
         body: ["var(--font-body)"],
         code: ["var(--font-code)"],
         heading: ["var(--font-heading)"],
-      },
-      maxWidth: {
-        "3xl": "726px",
       },
       colors: {
         border: "hsl(var(--border))",

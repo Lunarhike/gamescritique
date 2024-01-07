@@ -25,7 +25,7 @@ export default async function Blog({ params }) {
             Published on {formatDate(post.metadata.publishedAt)}
           </time>
         )}
-        <h1 className="mt-2 font-heading font-bold inline-block text-4xl leading-tight tracking-tight lg:text-5xl ">
+        <h1 className="mt-2 font-heading inline-block text-5xl font-medium leading-tight tracking-tight lg:text-5xl">
           {post.metadata.title}
         </h1>
         <div className="mt-4 flex space-x-4"></div>
@@ -33,7 +33,7 @@ export default async function Blog({ params }) {
           <Placeholder />
         </Suspense>
       </div>
-      <div className="prose prose-quoteless prose-neutral dark:prose-invert py-8">
+      <div className="py-8">
         <Mdx
           source={post.content}
           options={{
