@@ -13,11 +13,36 @@ Aliquam vel urna posuere, laoreet massa ac, gravida ligula:
 - [Performance](#performance)
 - [Opinions](#opinions)
 
-<Callout emoji="⚠️" type="warning">
+<Counter>Hello. I am Callout.</Counter>
 
-**Disclaimer:** Hello from the Callout.
+```jsx
+function Table({ data }) {
+  let headers = data.headers.map((header, index) => (
+    <th key={index}>{header}</th>
+  ));
+  let rows = data.rows.map((row, index) => (
+    <tr key={index}>
+      {row.map((cell, cellIndex) => (
+        <td key={cellIndex}>{cell}</td>
+      ))}
+    </tr>
+  ));
 
-</Callout>
+  return (
+    <table>
+      <thead>
+        <tr>{headers}</tr>
+      </thead>
+      <tbody>{rows}</tbody>
+    </table>
+  );
+}
+```
+
+### Answer
+
+The perfect size of an h1 text with Space Grotesk font can vary, but for other fonts, the following information can be useful. According to Boosted
+2, the desktop size for an h1 heading is recommended to be 2.125rem (34px), with a line height of 1 (34px). Additionally, the letter spacing for the h1 heading is suggested to be -0.0625rem (-1px). These values can serve as a starting point for determining the ideal size, line height, and letter spacing for an h1 heading with a different font.
 
 ## Hello World From The Space
 

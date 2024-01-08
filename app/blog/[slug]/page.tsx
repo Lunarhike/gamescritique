@@ -1,10 +1,8 @@
-import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { Mdx } from "@/components/mdx";
 import { getBlogPosts } from "@/server/blog";
 import { formatDate } from "@/lib/utils";
 import rehypePrettyCode from "rehype-pretty-code";
-import { Placeholder } from "@/server/placeholder";
 
 export default async function Blog({ params }) {
   let posts = await getBlogPosts(); // Wait for the getBlogPosts function to resolve
@@ -20,20 +18,16 @@ export default async function Blog({ params }) {
         {post.metadata.publishedAt && (
           <time
             dateTime={post.metadata.publishedAt}
-            className="block text-sm text-muted-foreground"
+            className="block text-xs text-muted-foreground font-code tracking-tight"
           >
             Published on {formatDate(post.metadata.publishedAt)}
           </time>
         )}
-        <h1 className="mt-2 font-heading inline-block text-3xl font-medium leading-tight tracking-tight sm:text-5xl">
+        <h1 className="font-heading mt-1 inline-block text-5xl font-medium leading-tighter tracking-tight sm:text-5xl">
           {post.metadata.title}
         </h1>
-        <div className="mt-2 text-muted-foreground text-sm flex space-x-4"></div>
-        <Suspense fallback={<div>Test...</div>}>
-          <Placeholder />
-        </Suspense>
       </div>
-      <div className="py-8">
+      <div className="py-4 prose dark:prose-invert prose-neutral">
         <Mdx
           source={post.content}
           options={{

@@ -1,4 +1,7 @@
+"use client";
+
 import { cn } from "@/lib/utils";
+import { Suspense } from "react";
 
 interface CalloutProps {
   emoji?: string;
@@ -7,7 +10,7 @@ interface CalloutProps {
   type?: "default" | "warning" | "danger";
 }
 
-export function Callout({
+export function Counter({
   children,
   emoji,
   type = "default",
@@ -15,20 +18,23 @@ export function Callout({
   ...props
 }: CalloutProps) {
   return (
-    <div
-      className={cn(
-        "px-4 py-1 text-body rounded text-sm flex items-center",
-        {
-          "": type === "default",
-          "border-red-500": type === "danger",
-          "border-yellow-100": type === "warning",
-        },
-        className
-      )}
-      {...props}
-    >
-      {emoji && <div className="flex items-center w-4 mr-4">{emoji}</div>}
-      <div className="w-full">{children}</div>
-    </div>
+    <Suspense fallback={<div>loading...</div>}>
+      <div
+        className={cn(
+          "flex items-center justify-center my-8 dark:bg-[#113B3C] hover:bg-[#191919] transition-all duration-200 hover:rounded-none rounded-2xl border-[#40FEFC] border h-[80px]",
+          {
+            "": type === "default",
+            "": type === "danger",
+            "": type === "warning",
+          },
+          className
+        )}
+        {...props}
+      >
+        <p className="[&>p]:m-0 text-xs sm:text-2xl font-semibold [&>p]:font-code [&>p]:text-[#40FEFC] uppercase ">
+          {children}
+        </p>
+      </div>
+    </Suspense>
   );
 }
